@@ -133,7 +133,7 @@ Desteklenen platformlar:
 
 Model boyutu yaklaşık:
 
-**~20 MB**
+**~436 KB**
 
 ---
 
