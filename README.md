@@ -43,7 +43,7 @@ Yüksek güçlü beyaz gürültü ile GNSS alıcısının sinyal alamaz hale get
 
 ---
 
-# 🧠 Core Technology: Yapay Zeka ve Veri Madenciliği
+# 🧠 Yapay Zeka ve Veri
 
 Projemizin yapay zeka modeli sentetik verilerle değil, **CERN altyapısında Zenodo üzerinden yayınlanan MARSIM veri setinden elde edilen gerçek ağ trafiği (PCAP)** ile eğitilmiştir.
 
