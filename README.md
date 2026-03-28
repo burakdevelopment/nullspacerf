@@ -51,6 +51,8 @@ Projemizin yapay zeka modeli sentetik verilerle değil, **CERN altyapısında Ze
 
 Sistem **39.000.000 satırlık rafine ağ paketi** üzerinde eğitilmiş bir **Random Forest** modeli kullanır.
 
+- https://zenodo.org/records/8202936
+
 ### Sıfır Yanlış Alarm
 
 Savunma sistemleri için kritik olan **Precision metriği** optimize edilmiştir.
