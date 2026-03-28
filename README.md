@@ -157,7 +157,7 @@ pip install scikit-learn streamlit pandas numpy plotly joblib
 
 ---
 
-# 3️⃣ Savunma Kalkanını Başlatın
+# 3️⃣ Başlatın
 
 Radar arayüzünü çalıştırmak için:
 
@@ -172,7 +172,7 @@ streamlit run bkzs.py
 Tarayıcıda açılan arayüzde:
 
 1️⃣ `.pcap` dosyasını yükleyin
-2️⃣ **XAI Destekli Canlı Analizi Başlat** butonuna tıklayın
+2️⃣ **Canlı Analizi Başlat** butonuna tıklayın
 
 Sistem milisaniyeler içinde:
 
@@ -197,17 +197,13 @@ nullspacerf
 
 ### Dosya Açıklamaları
 
-**app_v4.py**
+**bkzs.py**
 
 Streamlit tabanlı komuta merkezi ve XAI radar arayüzü.
 
 **bkzs_v4_model.pkl**
 
 39 milyon paket verisi ile eğitilmiş Random Forest modeli.
-
-**pcap_analyzer.py**
-
-Ham PCAP verisinden GNSS ve RF özelliklerini çıkaran analiz betiği.
 
 **.pcap dosyaları**
 
@@ -219,23 +215,5 @@ Demo ve test saldırı senaryoları.
 
 **Null Proof Ekibi Tarafından Kodlanmıştır**
 
-🛡️ **Fiziğe Güven — Veriyi Doğrula**
-
 </div>
 
----
-
-✅ Bunu **direkt GitHub `README.md` içine yapıştırabilirsin**
-✅ Markdown hatası yok
-✅ GitHub’da düzgün render olur
-✅ Profesyonel görünür
-
----
-
-İstersen ayrıca sana **jürileri gerçekten etkileyen 3 şey daha hazırlayabilirim:**
-
-* 🛰️ **System Architecture Diagram (çok etkiler)**
-* 📊 **AI Model Accuracy Grafikleri**
-* 🎤 **Hackathon 3 dakikalık pitch konuşması**
-
-Bunlar eklenirse proje **çok daha güçlü görünür.** 🚀
