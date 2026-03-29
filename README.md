@@ -6,7 +6,7 @@
 ![Status](https://img.shields.io/badge/Status-Research-red)
 
 <div align="center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Türkiye_Uzay_Ajansı_logo.svg/1024px-Türkiye_Uzay_Ajansı_logo.svg.png" width="150">
+<img src="https://images.seeklogo.com/logo-png/45/2/turkiye-uzay-ajansi-tua-logo-png_seeklogo-453642.png" width="150">
 
 <h1>🛰️ NullSpace RF | Zero-Trust GNSS Radar</h1>
 
