@@ -10,136 +10,136 @@
 
 <h1>🛰️ NullSpace RF | Zero-Trust GNSS Radar</h1>
 
-<p><b>Bölgesel Konumlama ve Zamanlama Sistemi (BKZS) İçin Açık Kaynaklı, Çoklu-Yörünge Siber Savunma Kalkanı</b></p>
+<p><b>An Open-Source, Multi-Orbit Cyber Defense Shield for the Regional Positioning and Timing System (BKZS)</b></p>
 
-<p><i>TUA Astro Hackathon 2026 - Geliştirici: <b>Team Null Proof</b></i></p>
+<p><i>TUA Astro Hackathon 2026 - Developer: <b>Team Null Proof</b></i></p>
 </div>
 
 ---
 
-# 🚀 Proje Vizyonu ve Çözülen Problem
+# 🚀 Project Vision and the Problem Solved
 
-Günümüzde İHA/SİHA'lar, otonom deniz araçları ve kritik altyapılar yönlerini bulmak için **GNSS (Küresel Navigasyon Uydu Sistemleri)** sinyallerine mutlak bağımlıdır. Ancak bu sinyaller yeryüzüne ulaştığında çok zayıftır (yaklaşık **−160 dBW**) ve **Elektronik Harp (EH)** saldırılarına karşı son derece kırılgandır.
+Today, UAVs/UCAVs, autonomous marine vehicles, and critical infrastructure are absolutely dependent on **GNSS (Global Navigation Satellite Systems)** signals to find their way. However, these signals are extremely weak by the time they reach the ground (approximately **−160 dBW**) and are highly fragile against **Electronic Warfare (EW)** attacks.
 
-**NullSpace RF**, GNSS alıcılarına yönelik gerçekleştirilen iki ölümcül saldırıyı **uç cihazda (Edge Computing)** tespit edip engellemek için tasarlanmıştır.
+**NullSpace RF** is designed to detect and block two lethal attacks against GNSS receivers directly on the **edge device (Edge Computing)**.
 
-Desteklenen sistemler:
+Supported systems:
 
 * GPS
 * GLONASS
 * Galileo
 * BeiDou
-* Gelecekteki Türkiye **BKZS** uyduları
+* Türkiye's future **BKZS** satellites
 
-Tespit edilen saldırı türleri:
+Detected attack types:
 
-### 1️⃣ Spoofing (Sinyal Yanıltma)
+### 1️⃣ Spoofing (Signal Deception)
 
-Otonom araçları rotasından çıkarmak için sahte uydu sinyalleri üretilmesi.
+Generating fake satellite signals to steer autonomous vehicles off their route.
 
-### 2️⃣ Jamming (Sinyal Körleştirme)
+### 2️⃣ Jamming (Signal Blinding)
 
-Yüksek güçlü beyaz gürültü ile GNSS alıcısının sinyal alamaz hale getirilmesi.
+Rendering the GNSS receiver unable to receive signals using high-power white noise.
 
 ---
 
-# 🧠 Yapay Zeka ve Veri
+# 🧠 Artificial Intelligence and Data
 
-Projemizin yapay zeka modeli sentetik verilerle değil, **CERN altyapısında Zenodo üzerinden yayınlanan MARSIM veri setinden elde edilen gerçek ağ trafiği (PCAP)** ile eğitilmiştir.
+Our project's AI model was trained not with synthetic data, but with **real network traffic (PCAP) obtained from the MARSIM dataset published on Zenodo over CERN infrastructure**.
 
-### Büyük Veri
+### Big Data
 
-Sistem **39.000.000 satırlık rafine ağ paketi** üzerinde eğitilmiş bir **Random Forest** modeli kullanır.
+The system uses a **Random Forest** model trained on **39,000,000 rows of refined network packets**.
 
 - https://zenodo.org/records/8202936
 
-### Sıfır Yanlış Alarm
+### Zero False Alarms
 
-Savunma sistemleri için kritik olan **Precision metriği** optimize edilmiştir.
+The **Precision metric**, which is critical for defense systems, has been optimized.
 
-* Precision: **%99**
-* Yanlış saldırı alarmı: **%1'in altında**
+* Precision: **99%**
+* False attack alarms: **below 1%**
 
-### Açıklanabilir Yapay Zeka (XAI)
+### Explainable Artificial Intelligence (XAI)
 
-NullSpace RF bir **black-box sistem değildir**.
+NullSpace RF is **not a black-box system**.
 
-XAI paneli sayesinde:
+Thanks to the XAI panel:
 
-* saldırının nedeni
-* kullanılan özellikler
-* fiziksel anomaliler
+* the reason for the attack
+* the features used
+* physical anomalies
 
-anlık olarak raporlanır.
-
----
-
-# 📐 Fiziksel Matematik ve Tespit Vektörleri
-
-NullSpace RF yalnızca makine öğrenmesi kullanmaz.
-
-Aynı zamanda **uzay fiziği ve RF davranışlarını** analiz eder.
+are reported in real time.
 
 ---
 
-## 1️⃣ İyonosferik Varyans Çöküşü (Spoofing Tespiti)
+# 📐 Physical Mathematics and Detection Vectors
 
-Uzaydan gelen GNSS sinyalleri **iyonosferden geçerken doğal bir gürültü ve varyans oluşturur**.
+NullSpace RF does not use machine learning alone.
 
-Ancak yerdeki bir **SDR spoofing cihazı** bu doğal varyansı taklit edemez.
+It also analyzes **space physics and RF behaviors**.
 
-Sistem aşağıdaki varyans hesaplamasını yapar:
+---
+
+## 1️⃣ Ionospheric Variance Collapse (Spoofing Detection)
+
+GNSS signals arriving from space **generate natural noise and variance as they pass through the ionosphere**.
+
+However, a ground-based **SDR spoofing device** cannot replicate this natural variance.
+
+The system performs the following variance calculation:
 
 ```
 σ² = (1 / N) Σ (xi − μ)²
 ```
 
-Eğer varyans doğal atmosferik dağılım limitlerinin altına düşerse sistem:
+If the variance drops below the natural atmospheric distribution limits, the system concludes:
 
-**"Bu sinyal uzaydan gelmiyor"**
+**"This signal is not coming from space"**
 
-sonucuna ulaşır ve bağlantıyı izole eder.
+and it isolates the connection.
 
 ---
 
-## 2️⃣ RF Boğulması ve Uydu Düşmesi (Jamming Tespiti)
+## 2️⃣ RF Choking and Satellite Dropout (Jamming Detection)
 
-Sistem sürekli olarak ortalama sinyal gücünü (**μ**) izler.
+The system continuously monitors the average signal power (**μ**).
 
-Jamming saldırısında:
+During a jamming attack:
 
-* bant genişliği beyaz gürültü ile doldurulur
-* SNR hızla düşer
-* minimum uydu sayısı şartı bozulur
+* the bandwidth is filled with white noise
+* the SNR drops rapidly
+* the minimum satellite count requirement is violated
 
-Konum çözümü için gereken minimum uydu sayısı:
+The minimum number of satellites required for a position solution:
 
 ```
 N ≥ 4
 ```
 
-Eğer bu şart ihlal edilirse sistem **jamming alarmı üretir.**
+If this condition is violated, the system **generates a jamming alarm.**
 
 ---
 
-# 💻 Kurulum ve Kullanım
+# 💻 Installation and Usage
 
-Sistem düşük donanımlı cihazlar için optimize edilmiştir.
+The system is optimized for low-hardware devices.
 
-Desteklenen platformlar:
+Supported platforms:
 
 * Raspberry Pi
-* İHA yerleşik bilgisayarları
-* Edge AI cihazları
-* standart Linux makineler
+* UAV onboard computers
+* Edge AI devices
+* standard Linux machines
 
-Model boyutu yaklaşık:
+Approximate model size:
 
 **~436 KB**
 
 ---
 
-# 1️⃣ Repoyu Klonlayın
+# 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/burakdevelopment/nullspacerf.git
@@ -149,9 +149,9 @@ cd nullspacerf
 
 ---
 
-# 2️⃣ Bağımlılıkları Kurun
+# 2️⃣ Install Dependencies
 
-Python 3.10+ gereklidir.
+Python 3.10+ is required.
 
 ```bash
 pip install scikit-learn streamlit pandas numpy plotly joblib
@@ -159,9 +159,9 @@ pip install scikit-learn streamlit pandas numpy plotly joblib
 
 ---
 
-# 3️⃣ Başlatın
+# 3️⃣ Launch
 
-Radar arayüzünü çalıştırmak için:
+To run the radar interface:
 
 ```bash
 streamlit run bkzs.py
@@ -169,23 +169,23 @@ streamlit run bkzs.py
 
 ---
 
-# 4️⃣ Canlı Analiz
+# 4️⃣ Live Analysis
 
-Tarayıcıda açılan arayüzde:
+In the interface that opens in your browser:
 
-1️⃣ `.pcap` dosyasını yükleyin
-2️⃣ **Canlı Analizi Başlat** butonuna tıklayın
+1️⃣ Upload the `.pcap` file
+2️⃣ Click the **Start Live Analysis** button
 
-Sistem milisaniyeler içinde:
+Within milliseconds, the system:
 
-* ağ paketlerini analiz eder
-* sinyal davranışlarını ölçer
-* saldırıları tespit eder
-* XAI panelinde sonuçları raporlar
+* analyzes the network packets
+* measures signal behaviors
+* detects attacks
+* reports the results in the XAI panel
 
 ---
 
-# 📂 Proje Yapısı
+# 📂 Project Structure
 
 ```
 nullspacerf
@@ -197,25 +197,24 @@ nullspacerf
 └── README.md
 ```
 
-### Dosya Açıklamaları
+### File Descriptions
 
 **bkzs.py**
 
-Streamlit tabanlı komuta merkezi ve XAI radar arayüzü.
+Streamlit-based command center and XAI radar interface.
 
 **bkzs_v4_model.pkl**
 
-39 milyon paket verisi ile eğitilmiş Random Forest modeli.
+Random Forest model trained on 39 million packets of data.
 
-**.pcap dosyaları**
+**.pcap files**
 
-Demo ve test saldırı senaryoları.
+Demo and test attack scenarios.
 
 ---
 
 <div align="center">
 
-**Null Proof Ekibi Tarafından Kodlanmıştır**
+**Coded by the Null Proof Team**
 
 </div>
-
